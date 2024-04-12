@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
+
 @Entity
 public class Plato {
     
@@ -23,5 +24,4 @@ public class Plato {
     private String nombre;
     private Double precio;
     private String descripcion;
-    
 }

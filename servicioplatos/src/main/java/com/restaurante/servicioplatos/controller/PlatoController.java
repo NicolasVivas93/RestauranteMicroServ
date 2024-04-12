@@ -1,6 +1,7 @@
 
 package com.restaurante.servicioplatos.controller;
 
+import com.restaurante.servicioplatos.dto.PlatoDTO;
 import com.restaurante.servicioplatos.model.Plato;
 import com.restaurante.servicioplatos.service.IPlatoService;
 import java.util.List;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/platos")
@@ -21,12 +24,13 @@ public class PlatoController {
     @Autowired
     private IPlatoService platoServ;
     
+
     @PostMapping("/crear")
     public String createPlato(@RequestBody Plato plato) {
         platoServ.createPlato(plato);
         return "Plato creado";
     }
-    
+
     @GetMapping("/traer")
     public List<Plato> getPlatos() {
         return platoServ.getPlatos();
@@ -35,6 +39,11 @@ public class PlatoController {
     @GetMapping("/traer/{id}")
     public Plato getPlato(@PathVariable Long id) {
         return platoServ.getPlato(id);
+    }
+
+    @GetMapping("/traerPlatosIngred")
+    public List<PlatoDTO> getPlatosConIngredientes() {
+        return platoServ.getPlatosConIngred();
     }
     
     @PutMapping("/editar")

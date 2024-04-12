@@ -15,4 +15,6 @@ public interface IIngredienteService {
     public void editIngrediente(Ingrediente platoModif);
     
     public void deleteIngrediente(Long id);
+    
+    public List<Ingrediente> buscarPorPlato(String nombrePlato);
 }

@@ -1,16 +1,21 @@
 
-package com.restaurante.servicioingredientes.model;
+package com.restaurante.servicioplatos.model;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-
-public class Plato {
-         
+@ToString
+public class Ingrediente {
+    
+    private Long id;
     private String nombre;
+    private List<String> listaPlatos;
 }

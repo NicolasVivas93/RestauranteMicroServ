@@ -5,7 +5,9 @@ import com.restaurante.servicioingredientes.model.Ingrediente;
 import com.restaurante.servicioingredientes.repository.IIngredienteRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class IngredienteService implements IIngredienteService {
     
     @Autowired
@@ -34,6 +36,11 @@ public class IngredienteService implements IIngredienteService {
     @Override
     public void deleteIngrediente(Long id) {
         ingredienteRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Ingrediente> buscarPorPlato(String nombrePlato) {
+        return ingredienteRepo.findByPlato(nombrePlato);
     }
     
 }
